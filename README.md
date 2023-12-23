@@ -203,3 +203,28 @@ IconButton(onPressed: () {
 ```
 
 > `onTap: () => Navigator.pushReplacementNamed(context, "/")`
+
+## Bottom Navigation
+
+```dart
+List<Widget> screenList = [homePageScreen, const SettingsScreen()];
+
+return Scaffold(
+  appBar: AppBar(
+    backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    title: Text(widget.title)
+  ),
+  bottomNavigationBar: BottomNavigationBar(
+    currentIndex: _currIndex,
+    onTap: (value) {
+      setState(() {
+        _currIndex = value;
+      });
+    },
+    items: const [
+      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
+  ]),
+  body: screenList[_currIndex],
+)
+```

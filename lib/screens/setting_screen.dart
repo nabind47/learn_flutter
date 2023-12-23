@@ -6,11 +6,12 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Settings")),
         body: Container(
-            child: GestureDetector(
-          child: const Text("Back to home"),
-          onTap: () => Navigator.pushReplacementNamed(context, "/"),
-        )));
+            child: Center(
+      child: GestureDetector(
+        child: const Text("Back to home"),
+        onTap: () => Navigator.pushReplacementNamed(context, "/"),
+      ),
+    )));
   }
 }
