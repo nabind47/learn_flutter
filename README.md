@@ -16,7 +16,8 @@ void main() {
 }
 ```
 
-## Stateless Widget
+### Stateless Widget
+
 ```dart
 import 'package:flutter/material.dart';
 
@@ -42,8 +43,8 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+### Statefull Widget
 
-## Statefull Widget
 ```dart
 import 'package:flutter/material.dart';
 
@@ -85,3 +86,88 @@ class _MyAppState extends State<MyApp> {
   }
 }
 ```
+
+## Widgets and Looping around Widgets
+
+```dart
+body: Container(
+  child: Column(
+    children: const [
+      ListTile(
+        leading: Icon(Icons.computer),
+        trailing: Icon(Icons.more_horiz),
+        title: Text("Computer Engineering"),
+        subtitle: Text("Bachelors in Computer Engineering"),
+        tileColor: Colors.pink,
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 8.0),
+        child: ListTile(
+          leading: Icon(Icons.computer),
+          trailing: Icon(Icons.more_horiz),
+          title: Text("Software Engineering"),
+          subtitle: Text("Bachelors in Software Engineering"),
+          tileColor: Colors.pink,
+        ),
+      ),
+    ],
+  ),
+),
+```
+
+### List View Builder
+
+```dart
+body: Container(
+  child: ListView.builder(
+    itemCount: 5,
+    itemBuilder: (context, index) {
+      return const Padding(
+        padding: EdgeInsets.only(top: 8.0),
+        child: ListTile(
+          leading: Icon(Icons.computer),
+          trailing: Icon(Icons.more_horiz),
+          title: Text("Computer Engineering"),
+          subtitle: Text("Bachelors in Computer Engineering"),
+          tileColor: Colors.pink,
+        ),
+      );
+    }),
+),
+```
+
+## Routing and Dynamic Routing
+
+```dart
+import 'package:flutter/material.dart';
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: const Text("Settings")),
+        body: Container(child: const Text("Settings Screen")));
+  }
+}
+```
+
+> `GestureDetector` such that navigation can be applied with other widgets
+
+```dart
+body: Column(
+  children: [
+    IconButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (_) => const SettingsScreen()));
+        },
+        icon: const Icon(Icons.settings))
+  ],
+),
+```
+
+> `Navigator.pushReplacement()` such that we dont allow to get back
+
+##
