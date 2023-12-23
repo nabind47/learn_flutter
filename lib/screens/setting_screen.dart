@@ -10,7 +10,7 @@ class SettingsScreen extends StatelessWidget {
         body: Container(
             child: GestureDetector(
           child: const Text("Back to home"),
-          onTap: () => Navigator.pop(context),
+          onTap: () => Navigator.pushReplacementNamed(context, "/"),
         )));
   }
 }

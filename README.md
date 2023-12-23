@@ -170,4 +170,36 @@ body: Column(
 
 > `Navigator.pushReplacement()` such that we dont allow to get back
 
-##
+## Dynamic Routing
+
+```dart
+var routes = {
+  "/": (_) => const MyHomePage(title: "Home"),
+  "/settings": (_) => const SettingsScreen(),
+};
+```
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      initialRoute: "/",
+      routes: routes,
+      onUnknownRoute: (settings) =>
+          MaterialPageRoute(builder: (context) => const ScreenNotFound()),
+    );
+  }
+```
+
+```dart
+IconButton(onPressed: () {
+  Navigator.pushNamed(context, "/settings");
+}, icon: const Icon(Icons.settings))
+```
+
+> `onTap: () => Navigator.pushReplacementNamed(context, "/")`
