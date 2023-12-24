@@ -228,3 +228,5 @@ return Scaffold(
   body: screenList[_currIndex],
 )
 ```
+
+> [Flutter Launcher Icon](https://pub.dev/packages/flutter_launcher_icons)
